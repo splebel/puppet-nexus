@@ -42,11 +42,11 @@ class nexus::package (
 
   $nexus_home      = "${nexus_root}/${nexus_home_dir}"
 
-  if $revision.empty? {
-    $full_version = $version
+  if $revision {
+    $full_version = "${version}-${revision}"
   }
   else {
-    $full_version = "${version}-${revision}"
+    $full_version = $version
   }
 
   $nexus_archive   = "nexus-${full_version}-bundle.tar.gz"
