@@ -37,6 +37,14 @@ class nexus::service(
     line    => "RUN_AS_USER=\${run_as_user:-${nexus_user}}",
   }
 
+  if $nexus_pid_dir {
+    file_line{ 'nexus_PIDDIR':
+      path    => $nexus_script,
+      match   => '^#?PIDDIR=',
+      line    => "PIDDIR=\${piddir:-${piddir}}",
+    }
+  }
+
   file{ '/etc/init.d/nexus':
     ensure  => present,
     owner   => 'root',

@@ -37,6 +37,7 @@ class nexus (
   $nexus_home_dir        = $nexus::params::nexus_home_dir,
   $nexus_work_dir        = undef,
   $nexus_work_dir_manage = $nexus::params::nexus_work_dir_manage,
+  $nexus_pid_dir         = undef,
   $nexus_user            = $nexus::params::nexus_user,
   $nexus_group           = $nexus::params::nexus_group,
   $nexus_host            = $nexus::params::nexus_host,
