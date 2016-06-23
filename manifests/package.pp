@@ -71,7 +71,7 @@ class nexus::package (
   exec{ 'nexus-untar':
     command => "tar zxf ${dl_file}",
     cwd     => $nexus_root,
-    creates => $nexus_home_real,
+    unless  => "test -d $nexus_home_real",
     path    => ['/bin','/usr/bin'],
   }
 
